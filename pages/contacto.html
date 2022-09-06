@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="../estilos.css">
+    <meta name="description" content="Vías de contacto y formularios de consulta">
+    <meta name="keywords" content="estudio jurídico, contacto, consulta, telefono, correo electrónico, dirección, Bahía Blanca, Argentina, Buenos Aires, Estomba, redes sociales">
+    <title>Contacto</title>
+</head>
+<body class="contenedorGrid">
+    <header class="header">
+        <!-- nav inicio  --> 
+        
+        <nav class="navbar navbar-expand-md navbar-light">     
+            <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="../imagenes/logo.png" alt="logo del estudio" width="100px" height="auto" class="d-inline-block align-text-top"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                <a class="nav-link navColor" href="../index.html">Home</a>
+                <a class="nav-link navColor" href="nosotros.html">Quiénes somos</a>
+                <a class="nav-link navColor" href="servicios.html">Servicios</a>
+                <a class="nav-link navColor" href="novedades.html">Novedades</a>
+                <a class="nav-link active navColor" aria-current="page" href="contacto.html">Contacto</a>
+                <a class="nav-link navColor" href="productos.html">Productos</a>
+                </div>
+            </div>
+            </div>
+        </nav>
+        <!-- nav fin  -->
+    </header>
+
+        <!-- jumbotron inicio -->
+        <div class="p-5 jumbotron">
+            <p class="align-self-center">El derecho es la más noble de las profesiones, o el más vil de los oficios; todo depende de la persona.</p>
+        </div>
+        <!-- jumbotron fin -->
+    
+    <main class="main">
+    <h1 class="tituloConocenosBs tituloContactanos">Contactenos</h1>
+    <section class="container contactanos">
+    <!-- form inicio -->
+
+    <form action="contacto.php" class="was-validated m-5" method="post" netlify>
+        <div class="mb-3 mt-3">
+            <label for="name" class="form-label">Nombre y apellido</label>
+            <input type="text" class="form-control focus" id="name" name="name" required>
+            <div class="invalid-feedback">Complete su email</div>
+        </div>  
+        <div class="mb-3">
+            <label for="email" class="form-label">Correo electrónico</label>
+            <input type="email" class="form-control focus" id="email" name="email" required>
+            <div class="invalid-feedback">Complete su nombre</div>
+        </div>
+        <div class="mb-3">
+            <label for="tel" class="form-label">Teléfono</label>
+            <input type="text" class="form-control focus" id="tel" placeholder="Incluye el código de área" name="tel">
+        </div>
+        <p>Tipo de teléfono</p>
+        <select class="form-select">
+            <option>Móvil</option>
+            <option>Fijo</option>
+        </select>
+        <div class="form-check mb-3 mt-3">
+            <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" name="newsletter"> ¿Desea suscribirse al newsletter?
+            </label>
+        </div>
+        <label for="consulta" class="form-label">Consulta</label>
+        <textarea class="form-control focus" rows="10" id="consulta" name="consulta" required></textarea>
+        <div class="invalid-feedback">Indique su consulta</div>
+        <label for="file" class="form-label mt-3">Adjuntar documento</label>
+        <input type="file" name="file" class="form-control">
+        <button type="submit" class="btn btn-primary boton">Enviar</button>
+        <button type="reset" class="btn btn-primary boton">Borrar</button>
+    </form>
+    <!-- form fin -->
+    </section>
+
+    <h2 class="tituloConocenosBs tituloContactanos">Vías de contacto</h2>
+    <section class="viasContacto">
+        <div class="row">
+            <ul class="col-md-6">
+                <li>estudioguerrierireale@gmail.com</li>
+                <li>(0291)454-5180 / (291)4727556</li>
+                <li>Estomba 340, 2A, Bahía Blanca</li>
+            </ul>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3113.099396821394!2d-62.272325184796614!3d-38.71552687959913!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95edbcaef28f8acd%3A0xb5c0302886d0ebfe!2sEstomba%20340%2C%20B8000AAH%20Bah%C3%ADa%20Blanca%2C%20Provincia%20de%20Buenos%20Aires%2C%20Argentina!5e0!3m2!1ses!2sus!4v1650062955604!5m2!1ses!2sus" width="" height="" class="col-md-6" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+    </main>
+    
+    <footer class="footer container-fluid">
+        <div class="row g-0">
+        <div class="seguinos col-3 text-start">
+            <h3>Seguinos</h3>
+            <a href="https://www.facebook.com/estudioguerrierireale" target="_blank"><i class="fa-brands fa-facebook facebook"></i></a> <!--EL ESTUDIO NO TIENE REDES SOCIALES, LO PUSE A MODO DE EJEMPLO NADA MÁS-->
+            <a href="https://www.instagram.com/estudioguerrierireale/?hl=es" target="_blank"><i class="fa-brands fa-instagram instagram"></i></a>
+            <a href="https://twitter.com/EstudioGuerrieriReale" target="_blank"><i class="fa-brands fa-twitter twitter"></i></a>
+        </div>
+        <div class="horariosAtencion col-5 text-center"><h3>Horarios de atención</h3>
+            <p>Lunes 08:00-12:30, 16:00-19:00,</p>
+            <p>Martes 08:00-12:30, 16:00-19:00,</p>
+            <p>Miércoles 08:00-12:30, 16:00-19:00</p>
+            </div>
+            <div class="contacto col-4 text-end"><h3>Contacto</h3>
+            <p>Estomba 340, 2A,<br>
+                Bahía Blanca,<br>
+                Buenos Aires, Argentina</p>
+            </div>
+            <div class="copyright col-12"><p>Todos los derechos reservados, 2022. Diseñado por Paula Di Rocco.</p>
+            </div>
+            </div>
+    </footer>
+    <a href="https://walink.co/69b943" class="whatsappIcon"><i class="fa-brands fa-whatsapp"></i></a>
+    
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</body>
+</html>

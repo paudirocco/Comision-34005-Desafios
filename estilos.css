@@ -1,0 +1,552 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Noto Sans", sans-serif;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.contenedorGrid {
+  display: grid;
+  grid-template-areas: "header" " jumbotron" " main" " footer";
+}
+
+.header {
+  grid-area: header;
+}
+
+.jumbotron {
+  grid-area: jumbotron;
+}
+
+.main {
+  grid-area: main;
+}
+
+.footer {
+  grid-area: footer;
+}
+
+/* HEADER */
+header {
+  background-color: hsla(52deg, 89%, 24%, 0.903);
+  font-size: 25px;
+}
+
+.navColor {
+  color: hsla(52deg, 82%, 70%, 0.8) !important;
+}
+
+.navColor:hover {
+  color: hsla(52deg, 91%, 8%, 0.903) !important;
+}
+
+.jumbotron {
+  background-image: url(imagenes/fondo1.jpg);
+  background-size: cover;
+  background-position: center;
+  max-height: 200px;
+  color: hsla(52deg, 90%, 16%, 0.903);
+  font-size: 15px;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px hsla(52deg, 58%, 85%, 0.792);
+}
+
+/* INDEX */
+main {
+  height: 100%;
+  width: auto;
+}
+
+.tituloConocenosBs {
+  text-align: center;
+  background-color: hsla(52deg, 82%, 70%, 0.8);
+  color: hsla(52deg, 91%, 8%, 0.903);
+  padding: 10px;
+  background-image: linear-gradient(to top right, hsla(52deg, 91%, 8%, 0.903), hsla(52deg, 82%, 70%, 0.8), rgb(240, 240, 90));
+}
+
+.conocenosBs {
+  width: 100%;
+  background-color: hsla(52deg, 91%, 8%, 0.903);
+  margin-bottom: 20px;
+}
+.conocenosBs .rowConocenos {
+  min-height: 500px;
+}
+.conocenosBs .rowConocenos .cleft {
+  background-image: url(imagenes/quienesSomos.jpg);
+  min-height: 300px;
+  background-size: auto;
+  background-position: 30% 30%;
+}
+.conocenosBs .rowConocenos .cright {
+  background-color: #fff;
+  padding: 15px;
+}
+.conocenosBs .rowConocenos .cright h3 {
+  text-align: center;
+}
+.conocenosBs .rowConocenos .cright p {
+  text-align: justify;
+  padding: 10px 50px 0px 50px;
+}
+.conocenosBs .rowConocenos .cright a {
+  text-decoration: none;
+}
+.conocenosBs .rowConocenos .cright a input {
+  color: hsla(52deg, 90%, 16%, 0.903);
+  background: transparent;
+  border: 2px solid hsla(52deg, 90%, 16%, 0.903);
+  border-radius: 6px;
+  padding: 10px 12px;
+  cursor: pointer;
+  margin: 10px 0px 0px 50px;
+}
+.conocenosBs .rowConocenos .cright a input:hover {
+  background-color: hsla(52deg, 90%, 16%, 0.903);
+  color: hsla(52deg, 82%, 70%, 0.8);
+}
+
+.servicios {
+  margin: 30px 0px 30px 10px;
+}
+.servicios .imagenesServiciosIndex {
+  text-align: center;
+}
+.servicios .imagenesServiciosIndex img {
+  transition: all 0.5s;
+  margin-bottom: 10px;
+}
+.servicios .imagenesServiciosIndex img:hover {
+  transform: scale(1.2);
+}
+
+.seccionBoton {
+  text-align: center;
+  margin-bottom: 35px;
+}
+.seccionBoton .linkServicios {
+  text-decoration: none;
+}
+.seccionBoton .linkServicios .botonServicios {
+  color: hsla(52deg, 90%, 16%, 0.903);
+  background: transparent;
+  border: 2px solid hsla(52deg, 90%, 16%, 0.903);
+  border-radius: 6px;
+  padding: 10px 12px;
+  display: inline;
+  cursor: pointer;
+}
+.seccionBoton .linkServicios .botonServicios:hover {
+  background-color: hsla(52deg, 90%, 16%, 0.903);
+  color: hsla(52deg, 82%, 70%, 0.8);
+}
+
+/* FOOTER */
+footer {
+  width: 100vw;
+  background-color: hsla(52deg, 89%, 24%, 0.903);
+  color: hsla(52deg, 82%, 70%, 0.8);
+  font-size: 10px;
+}
+footer h3 {
+  margin-top: 6px;
+  font-size: 20px;
+}
+footer i {
+  color: hsla(52deg, 82%, 70%, 0.8);
+  font-size: 16px;
+  letter-spacing: 5px;
+}
+footer .facebook {
+  color: rgb(58, 58, 250);
+}
+footer .instagram {
+  color: rgb(249, 71, 101);
+}
+footer .twitter {
+  color: rgb(136, 201, 239);
+}
+footer .horariosAtencion p {
+  margin-bottom: 0;
+}
+footer .copyright {
+  text-align: center;
+  font-size: 11px;
+  margin-top: 10px;
+}
+
+.subir {
+  height: 40px;
+  width: 40px;
+  background-color: hsla(52deg, 91%, 8%, 0.903);
+  position: fixed;
+  bottom: 19px;
+  right: 15px;
+  text-align: center;
+  line-height: 30px;
+  font-size: 25px;
+  border-radius: 50%;
+  border: 5px solid hsla(52deg, 82%, 70%, 0.8);
+  color: hsla(52deg, 82%, 70%, 0.8);
+  box-shadow: 0 0 10px hsla(52deg, 91%, 8%, 0.903);
+}
+
+/* NOVEDADES */
+.ultimasNovedades {
+  display: inline-block;
+  margin: 35px 50px 35px 50px;
+  color: hsla(52deg, 91%, 8%, 0.903);
+}
+.ultimasNovedades form {
+  margin: 20px 0px;
+}
+.ultimasNovedades .botonNovedades {
+  color: hsla(52deg, 90%, 16%, 0.903);
+  background: transparent;
+  border: 2px solid hsla(52deg, 90%, 16%, 0.903);
+  border-radius: 6px;
+  padding: 10px 12px;
+  display: inline;
+  cursor: pointer;
+}
+.ultimasNovedades .botonNovedades:hover {
+  background-color: hsla(52deg, 90%, 16%, 0.903);
+  color: hsla(52deg, 82%, 70%, 0.8);
+}
+.ultimasNovedades article {
+  margin: 50px 0px;
+}
+.ultimasNovedades .preguntasFrecuentes ul {
+  list-style: none;
+  margin-top: 35px;
+}
+.ultimasNovedades .preguntasFrecuentes ul a {
+  text-decoration: none;
+  color: hsla(52deg, 91%, 8%, 0.903);
+}
+
+.enlacesInteres {
+  margin: 20px 35px 35px 35px;
+  text-align: center;
+  color: hsla(52deg, 91%, 8%, 0.903);
+}
+.enlacesInteres h3 {
+  margin-bottom: 15px;
+  border: groove 5px hsla(52deg, 82%, 70%, 0.8);
+  text-align: center;
+}
+.enlacesInteres a {
+  text-decoration: none;
+  color: hsla(52deg, 91%, 8%, 0.903);
+  display: block;
+}
+
+/* NOSOTROS y SERVICIOS */
+.sec {
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.carrusel {
+  background-color: hsla(52deg, 82%, 70%, 0.562);
+}
+
+.nosotros, .principalesServicios {
+  color: hsla(52deg, 91%, 8%, 0.903);
+  text-align: justify;
+}
+
+.color-brown {
+  border: 7px inset brown;
+  min-height: 290px;
+  padding: 10px;
+}
+
+.color-khaki {
+  border: 7px inset khaki;
+  min-height: 250px;
+  padding: 10px;
+}
+
+.nosotros {
+  width: 100%;
+}
+.nosotros .nosotrosSection {
+  margin: 35px 50px 70px 50px;
+}
+.nosotros .nosotrosSection .nosotrosTitulo {
+  margin-left: 40px;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+.nosotros .nosotrosSection .historia {
+  margin-left: 10px;
+  margin-top: 50px;
+  margin-right: 10px;
+  text-align: center;
+  font-size: 20px;
+}
+.nosotros .nosotrosSection .nombresNosotros {
+  margin-bottom: 25px;
+}
+.nosotros .nosotrosSection .nombresNosotros h3 {
+  margin-bottom: 15px;
+}
+
+.contenedorImagenes {
+  display: grid;
+  grid-template-columns: 300px;
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-areas: "derechofamilia" " derechocivil" " derecholaboral" " mediacionprejudicial" " derechoconsumidor";
+}
+.contenedorImagenes .familia {
+  grid-area: derechofamilia;
+}
+.contenedorImagenes .civil {
+  grid-area: derechocivil;
+}
+.contenedorImagenes .laboral {
+  grid-area: derecholaboral;
+}
+.contenedorImagenes .prejudicial {
+  grid-area: mediacionprejudicial;
+}
+.contenedorImagenes .consumidor {
+  grid-area: derechoconsumidor;
+}
+.contenedorImagenes .imagen {
+  position: relative;
+  margin-bottom: 5px;
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.75);
+  margin: 15px;
+  border-radius: 10px;
+}
+.contenedorImagenes .imagen img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.contenedorImagenes .imagen .descServicios {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: hsla(52deg, 90%, 16%, 0.8);
+  color: hsl(52deg, 82%, 70%);
+  font-size: 13px;
+  height: 0;
+  width: 100%;
+  transition: 1s ease;
+  overflow: hidden;
+}
+.contenedorImagenes .imagen .descServicios h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 5px;
+  text-align: center;
+}
+.contenedorImagenes .imagen .descServicios p {
+  margin: 15px;
+  text-align: center;
+}
+
+.imagen:hover .descServicios {
+  height: 100%;
+}
+
+/* CONTACTO */
+.contactanos {
+  margin: 35px;
+  color: hsla(52deg, 91%, 8%, 0.903);
+}
+.contactanos .focus:focus {
+  background: hsla(50deg, 14%, 91%, 0.919);
+}
+.contactanos form .boton {
+  color: hsla(52deg, 90%, 16%, 0.903);
+  background: transparent;
+  border: 2px solid hsla(52deg, 90%, 16%, 0.903);
+  border-radius: 6px;
+  padding: 10px 12px;
+  display: inline;
+  cursor: pointer;
+  margin: 20px;
+}
+.contactanos .form-control, .contactanos .form-select {
+  width: 80%;
+}
+.contactanos form .boton:hover {
+  background-color: hsla(52deg, 90%, 16%, 0.903);
+  color: hsla(52deg, 82%, 70%, 0.8);
+}
+
+.viasContacto {
+  margin: 35px;
+  color: hsla(52deg, 91%, 8%, 0.903);
+}
+.viasContacto ul {
+  list-style: none;
+  margin-left: 30px;
+  margin-top: 20px;
+}
+.viasContacto ul li {
+  padding: 5px;
+}
+.viasContacto iframe {
+  margin-top: 25px;
+  width: auto;
+  height: 300px;
+}
+
+.tituloContactanos {
+  font-size: 40px;
+}
+
+.whatsappIcon {
+  height: 55px;
+  width: 55px;
+  background-color: rgb(14, 192, 14);
+  position: fixed;
+  bottom: 19px;
+  right: 15px;
+  text-align: center;
+  line-height: 55px;
+  font-size: 40px;
+  border-radius: 50%;
+  color: rgb(255, 255, 255);
+  box-shadow: 0 0 10px hsla(52deg, 91%, 8%, 0.903);
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 500px) {
+  /* SERVICIOS */
+  .contenedorImagenes {
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(3, 300px);
+    justify-content: space-evenly;
+  }
+  .contenedorImagenes .familia {
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+  .contenedorImagenes .civil {
+    grid-column: 2/3;
+    grid-row: 1/2;
+  }
+  .contenedorImagenes .laboral {
+    grid-column: 1/2;
+    grid-row: 2/3;
+  }
+  .contenedorImagenes .prejudicial {
+    grid-column: 2/3;
+    grid-row: 2/3;
+  }
+  .contenedorImagenes .consumidor {
+    grid-column: 1/3;
+    grid-row: 3/4;
+  }
+  .descServicios {
+    font-size: 15px;
+  }
+  /* FOOTER */
+  .horariosAtencion p {
+    font-size: 13px;
+  }
+  .contacto p {
+    font-size: 13px;
+  }
+  footer i {
+    font-size: 20px;
+  }
+  .copyright {
+    font-size: 11px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  /*NOSOTROS*/
+  .color-brown {
+    margin-left: 50px;
+    border: 7px inset brown;
+    min-height: 200px;
+    padding: 10px;
+  }
+  .color-khaki {
+    margin-left: 250px;
+    border: 7px inset khaki;
+    min-height: -200px;
+    padding: 10px;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .jumbotron {
+    font-size: 20px;
+  }
+  footer {
+    font-size: 16px;
+  }
+  footer i {
+    font-size: 30px;
+    letter-spacing: 5px;
+  }
+  footer .horariosAtencion p, footer .contacto p {
+    font-size: 15px;
+  }
+  footer .copyright {
+    font-size: 11px;
+  }
+  /* SERVICIOS */
+  .contenedorImagenes {
+    grid-template-columns: repeat(3, 350px);
+    grid-template-rows: repeat(2, 350px);
+    justify-content: space-evenly;
+  }
+  .contenedorImagenes .familia {
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+  .contenedorImagenes .civil {
+    grid-column: 2/3;
+    grid-row: 1/2;
+  }
+  .contenedorImagenes .laboral {
+    grid-column: 3/4;
+    grid-row: 1/2;
+  }
+  .contenedorImagenes .prejudicial {
+    grid-column: 1/2;
+    grid-row: 2/3;
+  }
+  .contenedorImagenes .consumidor {
+    grid-column: 2/3;
+    grid-row: 2/3;
+  }
+  .contenedorImagenes .descServicios {
+    font-size: 15px;
+  }
+  /*NOSOTROS*/
+  .historia {
+    margin-left: 250px;
+    margin-top: 50px;
+    margin-right: 250px;
+    text-align: center;
+    font-size: 20px;
+  }
+  /* NOVEDADES */
+  .ultimasNovedades {
+    display: inline-block;
+    width: 60%;
+    margin-left: 33px;
+  }
+  .enlacesInteres {
+    margin: 35px 35px 0 0;
+    float: right;
+  }
+}
+
+/*# sourceMappingURL=estilos.css.map */
