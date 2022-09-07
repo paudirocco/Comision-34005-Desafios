@@ -32,9 +32,11 @@ alert(mensaje);
 
 //EJEMPLO 3: SI LA CANTIDAD ES CERO, AVISA AL USUARIO QUE EL PRODUCTO NO ESTÁ DISPONIBLE
 
-if (producto.cantidad === 0){
+if (producto != undefined && producto.cantidad === 0){
     alert("Producto no disponible")
-};
+}else{
+    "Producto no encontrado"
+}
 
 
 //EJEMPLO 4: CUANDO UN USUARIO COMPRA UN PRODUCTO, REDUCE EL STOCK EN UNA UNIDAD (este ejemplo en el console log da error porque choca con el prompt del ejemplo de más arriba, pero si se comentan las partes que chocan del prompt con el console log, funciona)
@@ -82,5 +84,5 @@ console.log(preciosDescuento);
 
 //EJEMPLO 7: CÁLCULO DEL PRECIO TOTAL DEL CARRITO DE COMPRAS (este ejemplo en el console log da error porque choca con el prompt del ejemplo de más arriba, pero si se comentan las partes que chocan del prompt con el console log, funciona)
 
-let totalCompra = productos.reduce((acumulador, item) => acumulador + item.precio , 0);
-console.log(totalCompra);
+// let totalCompra = productos.reduce((acumulador, item) => acumulador + item.precio , 0);
+// console.log(totalCompra);
