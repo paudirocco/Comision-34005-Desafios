@@ -1,4 +1,6 @@
-console.log ("esto se ejecuta");
+let mensajeCarrito = document.getElementById("mensajeCarrito");
+mensajeCarrito.style.display = "block";
+
 class Producto {
     constructor (id, nombre, precio, cantidad){
         this.id = id;
@@ -7,9 +9,10 @@ class Producto {
         this.cantidad = cantidad;
     }
 
-    agregarAlCarrito(){
+    agregarAlCarrito(buttonId){
         if (this.cantidad === 0){
             alert ("Producto no disponible")
+            document.getElementById(buttonId).setAttribute('disabled','disabled');
         }else{
             this.cantidad = this.cantidad - 1;
             return 1;
@@ -46,35 +49,47 @@ botonComprarCarrito.addEventListener("click", comprar);
 //DEFINICION RESPUESTAS POR PRODUCTO
 function respuesta1 () {
     let producto = productos[0];
-    if( producto.agregarAlCarrito() === 1 )
-        carrito.push({
+    if( producto.agregarAlCarrito("notificacionesElectronicas") === 1 ){
+        let compra = {
             'nombre': producto.nombre,
             'precio': producto.precio
-        });
+        }
+        carrito.push(compra);
+        localStorage.setItem ("compras", JSON.stringify(carrito));
+    }
 };
 function respuesta2 () {
     let producto = productos[1];
-    if( producto.agregarAlCarrito() === 1 )
-    carrito.push({
-        'nombre': producto.nombre,
-        'precio': producto.precio
-    });
+    if( producto.agregarAlCarrito("manualDeContratos") === 1 ){
+        let compra = {
+            'nombre': producto.nombre,
+            'precio': producto.precio
+        }
+        carrito.push(compra);
+        localStorage.setItem ("compras", JSON.stringify(carrito));
+    }
 };
 function respuesta3 () {
     let producto = productos[2];
-    if( producto.agregarAlCarrito() === 1 )
-    carrito.push({
-        'nombre': producto.nombre,
-        'precio': producto.precio
-    });
+    if( producto.agregarAlCarrito("matrimonioYDivorcio") === 1 ){
+        let compra = {
+            'nombre': producto.nombre,
+            'precio': producto.precio
+        }
+        carrito.push(compra);
+        localStorage.setItem ("compras", JSON.stringify(carrito));
+    }
 };
 function respuesta4 () {
     let producto = productos[3];
-    if( producto.agregarAlCarrito() === 1 )
-    carrito.push({
-        'nombre': producto.nombre,
-        'precio': producto.precio
-    });
+    if( producto.agregarAlCarrito("derechoPrivadoEmpresarial") === 1 ){
+        let compra = {
+            'nombre': producto.nombre,
+            'precio': producto.precio
+        }
+        carrito.push(compra);
+        localStorage.setItem ("compras", JSON.stringify(carrito));
+    }
 };
 
 //DEFINICION RESPUESTA BOTON COMPRAR
@@ -82,17 +97,30 @@ function comprar (){
     let mensaje = "";
     let productoNro = 0;
     let precioTotal = 0;
-    carrito.forEach(element => {
+    let misCompras = JSON.parse(localStorage.getItem ("compras"));
+
+    misCompras.forEach(element => {
         productoNro++;
         //productoNro = productoNro + 1; igual a linea anterior
         mensaje+= "Producto "+productoNro+": "+element.nombre+"\n";
         precioTotal = precioTotal + element.precio;
     });
-    mensaje+= "Precio total: $"+precioTotal;
-    alert(mensaje)
-    carrito = []
-}
 
+
+    // carrito.forEach(element => {
+    //     productoNro++;
+    //     //productoNro = productoNro + 1; igual a linea anterior
+    //     mensaje+= "Producto "+productoNro+": "+element.nombre+"\n";
+    //     precioTotal = precioTotal + element.precio;
+    // });
+    mensaje+= "Precio total: $"+precioTotal;
+
+    mensajeCarrito.innerText = mensaje;
+
+    // alert(mensaje)
+    // carrito = []
+    localStorage.clear();
+}
 
 
 //AGREGADO DE FONDO DE COLOR A PRODUCTOS DEL HTML

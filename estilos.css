@@ -566,3 +566,12 @@ footer .copyright {
 .manteca {
   background-color: rgba(221, 212, 177, 0.863);
 }
+.mensajeCarrito {
+  border-top: 50px;
+  width: auto;
+  border-color: blue;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  text-align: center;
+  display: none;
+}
