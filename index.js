@@ -2,98 +2,72 @@ let mensajeCarrito = document.getElementById("mensajeCarrito");
 mensajeCarrito.style.display = "block";
 
 class Producto {
-    constructor (id, nombre, precio, cantidad){
+    constructor (id, nombre, precio, cantidad, imagen){
         this.id = id;
         this.nombre = nombre;
         this.precio = precio;
         this.cantidad = cantidad;
-    }
-
-    agregarAlCarrito(buttonId){
-        if (this.cantidad === 0){
-            alert ("Producto no disponible")
-            document.getElementById(buttonId).setAttribute('disabled','disabled');
-        }else{
-            this.cantidad = this.cantidad - 1;
-            return 1;
-        }
+        this.imagen = imagen;
     }
 }
 
 const productos = [
-    new Producto(1, "notificaciones electronicas", 2900, 20),
-    new Producto(2, "manual de contratos", 3400, 17),
-    new Producto(3, "matrimonio y divorcio", 2600, 0),
-    new Producto(4, "derecho privado empresarial", 4900, 10)
+    new Producto(1, "notificaciones electronicas", 2900, 20, "/imagenes/notificaciones-electronicas.jpg"),
+    new Producto(2, "manual de contratos", 3400, 17, "/imagenes/manual-de-contratos.jpg"),
+    new Producto(3, "matrimonio y divorcio", 2600, 0, "/imagenes/matrimonio-y-divorcio.jpg"),
+    new Producto(4, "derecho privado empresarial", 4900, 10, "/imagenes/derecho-privado-empresarial.jpg")
 ];
 
-let carrito = [];
-
-//BOTONES
-let botonNotificacionesElectronicas = document.getElementById("notificacionesElectronicas");
-botonNotificacionesElectronicas.addEventListener("click", respuesta1);
-
-let botonManualDeContratos = document.getElementById("manualDeContratos");
-botonManualDeContratos.addEventListener("click", respuesta2);
-
-let botonMatrimonioYDivorcio = document.getElementById("matrimonioYDivorcio");
-botonMatrimonioYDivorcio.addEventListener("click", respuesta3);
-
-let botonDerechoPrivadoEmpresarial = document.getElementById("derechoPrivadoEmpresarial");
-botonDerechoPrivadoEmpresarial.addEventListener("click", respuesta4);
-
-let botonComprarCarrito = document.getElementById("comprarCarrito");
-botonComprarCarrito.addEventListener("click", comprar);
+let deposito = document.getElementById("deposito");
 
 
-//DEFINICION RESPUESTAS POR PRODUCTO
-function respuesta1 () {
-    let producto = productos[0];
-    if( producto.agregarAlCarrito("notificacionesElectronicas") === 1 ){
-        let compra = {
-            'nombre': producto.nombre,
-            'precio': producto.precio
-        }
-        carrito.push(compra);
+productos.forEach((producto) => {
+    let contenedorProductos = document.createElement("div");
+
+    contenedorProductos.innerHTML = 
+                                    `<img src=${producto.imagen}>
+                                    <h3>${producto.nombre}</h3>
+                                    <p>Precio de lista: ${producto.precio}</p>
+                                    <p>Stock disponible: ${producto.cantidad}</p>
+                                    <button type="submit" id="agregarACarrito-${producto.id}">Agregar al carrito</button>
+                                    <button id="eliminarDeCarrito-${producto.id}">Eliminar del carrito</button>`;
+    deposito.appendChild(contenedorProductos);
+    
+let botonAgregarACarrito = document.getElementById(`agregarACarrito-${producto.id}`);
+botonAgregarACarrito.addEventListener("click", agregar);
+
+//DEFINICION RESPUESTA AGREGAR A CARRITO
+
+function agregar () {
+
+    if (producto.cantidad === 0){
+        alert ("Producto no disponible")
+        document.getElementById(`agregarACarrito-${producto.id}`).setAttribute('disabled','disabled');
+    }else{
+        producto.cantidad = producto.cantidad - 1;
+
+        let id = producto?.id;
+        //console.log(id);
+        //console.log(producto.cantidad);
+        let compra = productos.findIndex(object => {
+            return object.id === id;
+        });
+
+        //console.log(productos[compra]);
+        carrito.push(productos[compra]);
         localStorage.setItem ("compras", JSON.stringify(carrito));
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Producto agregado al carrito',
+            showConfirmButton: true,
+            timer: 2500
+        })
     }
-};
-function respuesta2 () {
-    let producto = productos[1];
-    if( producto.agregarAlCarrito("manualDeContratos") === 1 ){
-        let compra = {
-            'nombre': producto.nombre,
-            'precio': producto.precio
-        }
-        carrito.push(compra);
-        localStorage.setItem ("compras", JSON.stringify(carrito));
-    }
-};
-function respuesta3 () {
-    let producto = productos[2];
-    if( producto.agregarAlCarrito("matrimonioYDivorcio") === 1 ){
-        let compra = {
-            'nombre': producto.nombre,
-            'precio': producto.precio
-        }
-        carrito.push(compra);
-        localStorage.setItem ("compras", JSON.stringify(carrito));
-    }
-};
-function respuesta4 () {
-    let producto = productos[3];
-    if( producto.agregarAlCarrito("derechoPrivadoEmpresarial") === 1 ){
-        let compra = {
-            'nombre': producto.nombre,
-            'precio': producto.precio
-        }
-        carrito.push(compra);
-        localStorage.setItem ("compras", JSON.stringify(carrito));
-    }
-};
 
-//DEFINICION RESPUESTA BOTON COMPRAR
-function comprar (){
+
+
+
     let mensaje = "";
     let productoNro = 0;
     let precioTotal = 0;
@@ -107,55 +81,101 @@ function comprar (){
     });
 
 
-    // carrito.forEach(element => {
+    mensaje+= "Precio total: $"+precioTotal;
+    mensajeCarrito.innerText = mensaje;
+
+
+
+
+
+
+};
+
+let botonEliminarDeCarrito = document.getElementById(`eliminarDeCarrito-${producto.id}`);
+botonEliminarDeCarrito.addEventListener("click", eliminar);
+
+
+//DEFINICION RESPUESTA BOTON ELIMINAR
+
+function eliminar(){
+    Swal.fire({
+        title: "Está seguro de eliminar el producto?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Sí, seguro",
+        cancelButtonText: "No, no quiero",
+    }).then((result) => {
+        if (result.isConfirmed) {
+            
+            let idEliminar = producto.id;
+            console.log(idEliminar);
+            let eliminarCompra = carrito.findIndex(object => {
+                return object.id === idEliminar;
+            })
+        localStorage.removeItem("compras");
+        carrito.splice(eliminarCompra,1);
+        localStorage.setItem("compras", JSON.stringify(carrito));
+    
+        Swal.fire({
+            title: "Borrado!",
+            icon: "success",
+            text: "El archivo ha sido borrado",
+        });
+        }
+    });
+
+
+
+
+    let mensaje = "";
+    let productoNro = 0;
+    let precioTotal = 0;
+    let misCompras = JSON.parse(localStorage.getItem ("compras"));
+
+    misCompras.forEach(element => {
+        productoNro++;
+        //productoNro = productoNro + 1; igual a linea anterior
+        mensaje+= "Producto "+productoNro+": "+element.nombre+"\n";
+        precioTotal = precioTotal + element.precio;
+    });
+
+
+    mensaje+= "Precio total: $"+precioTotal;
+    mensajeCarrito.innerText = mensaje;
+
+
+
+
+
+    };
+});
+
+
+let carrito = [];
+
+let botonComprarCarrito = document.getElementById("comprarCarrito");
+botonComprarCarrito.addEventListener("click", comprar);
+
+
+//DEFINICION RESPUESTA BOTON COMPRAR
+function comprar (){
+    let mensaje = "";
+    // let productoNro = 0;
+    // let precioTotal = 0;
+    // let misCompras = JSON.parse(localStorage.getItem ("compras"));
+
+    // misCompras.forEach(element => {
     //     productoNro++;
     //     //productoNro = productoNro + 1; igual a linea anterior
     //     mensaje+= "Producto "+productoNro+": "+element.nombre+"\n";
     //     precioTotal = precioTotal + element.precio;
     // });
-    mensaje+= "Precio total: $"+precioTotal;
 
+
+    mensaje+= "Gracias por su compra!"
+    //Precio total: $"+precioTotal;
     mensajeCarrito.innerText = mensaje;
-
-    // alert(mensaje)
-    // carrito = []
     localStorage.clear();
 }
-
-
-//AGREGADO DE FONDO DE COLOR A PRODUCTOS DEL HTML
-
-let colorMarron = document.getElementById("colorMarron");
-let colorAmarillo = document.getElementById("colorAmarillo");
-let colorBeige = document.getElementById("colorBeige");
-let colorManteca = document.getElementById("colorManteca");
-
-colorMarron.className = "marron";
-colorAmarillo.className = "amarillo";
-colorBeige.className = "beige";
-colorManteca.className = "manteca";
-
-
-
-
-
-
-//MI IDEA ERA GENERAR, COMO RESPUESTA A LOS BOTONES, UNA UNICA "RESPUESTA" (Y EL CODIGO DE LAS LINEA 31 POR EJEMPLO ME HUBIERA QUEDADO ASI: botonManualDeContratos.addEventListener("click", respuesta(notificaciones electronicas)); Y NO RESPUESTA 1,2,3 Y 4, Y LUEGO APLICAR ESTAS FUNCIONES GENERICAS DE RESPUESTA. SIN EMBARGO, CUANDO LO HAGO ME DA ERROR POR CONSOLA Y NO PUEDO DETERMINAR EL POR QUÉ (BUSQUE ALGO Y CREI ENTENDER QUE ES PORQUE EN LA FUNCION RESPUESTA, AL AGREGARLE EL NOMBRE ENTRE PARENTESIS, YA NO ESTARIA INVOCANDO LA FUNCION SINO DECLARANDOLA, PUEDE SER? PERO EN ESE CASO COMO PODRIA HACERSE GENERICA LA RESPUESTA?)
-
-// function encontrarIndex(nombre) {
-//     for (let index = 0; index < productos.length; index++) {
-//     if(productos[index].nombre === nombre){
-//         return index;
-//     }
-//     }
-// }
-
-// function respuesta(nombre) {    
-//     let producto = productos[encontrarIndex(nombre)];
-//     console.log(producto);
-//     carrito.push(producto.nombre);
-//     producto.agregarAlCarrito();
-//     console.log(productos);
-// };
 
 
