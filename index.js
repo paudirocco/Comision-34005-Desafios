@@ -1,5 +1,6 @@
 let mensajeCarrito = document.getElementById("mensajeCarrito");
 mensajeCarrito.style.display = "block";
+let carrito = [];
 
 class Producto {
     constructor (id, nombre, precio, cantidad, imagen){
@@ -66,8 +67,6 @@ function agregar () {
     }
 
 
-
-
     let mensaje = "";
     let productoNro = 0;
     let precioTotal = 0;
@@ -83,9 +82,6 @@ function agregar () {
 
     mensaje+= "Precio total: $"+precioTotal;
     mensajeCarrito.innerText = mensaje;
-
-
-
 
 
 
@@ -116,42 +112,54 @@ function eliminar(){
         carrito.splice(eliminarCompra,1);
         localStorage.setItem("compras", JSON.stringify(carrito));
     
+        let mensaje = "";
+        let productoNro = 0;
+        let precioTotal = 0;
+        let misCompras = JSON.parse(localStorage.getItem ("compras"));
+    
+        misCompras.forEach(element => {
+            productoNro++;
+            //productoNro = productoNro + 1; igual a linea anterior
+            mensaje+= "Producto "+productoNro+": "+element.nombre+"\n";
+            precioTotal = precioTotal + element.precio;
+        });
+    
+    
+        mensaje+= "Precio total: $"+precioTotal;
+        mensajeCarrito.innerText = mensaje;
+
         Swal.fire({
             title: "Borrado!",
             icon: "success",
-            text: "El archivo ha sido borrado",
+            text: "El producto ha sido borrado",
         });
         }
     });
-
-
-
-
-    let mensaje = "";
-    let productoNro = 0;
-    let precioTotal = 0;
-    let misCompras = JSON.parse(localStorage.getItem ("compras"));
-
-    misCompras.forEach(element => {
-        productoNro++;
-        //productoNro = productoNro + 1; igual a linea anterior
-        mensaje+= "Producto "+productoNro+": "+element.nombre+"\n";
-        precioTotal = precioTotal + element.precio;
-    });
-
-
-    mensaje+= "Precio total: $"+precioTotal;
-    mensajeCarrito.innerText = mensaje;
-
-
-
 
 
     };
 });
 
 
-let carrito = [];
+let mensaje = "";
+let productoNro = 0;
+let precioTotal = 0;
+let misCompras = JSON.parse(localStorage.getItem ("compras"));
+
+if (misCompras){
+    misCompras.forEach(element => {
+        productoNro++;
+        //productoNro = productoNro + 1; igual a linea anterior
+        mensaje+= "Producto "+productoNro+": "+element.nombre+"\n";
+        precioTotal = precioTotal + element.precio;
+    })};
+
+
+mensaje+= "Precio total: $"+precioTotal;
+mensajeCarrito.innerText = mensaje;
+
+
+
 
 let botonComprarCarrito = document.getElementById("comprarCarrito");
 botonComprarCarrito.addEventListener("click", comprar);
@@ -160,16 +168,6 @@ botonComprarCarrito.addEventListener("click", comprar);
 //DEFINICION RESPUESTA BOTON COMPRAR
 function comprar (){
     let mensaje = "";
-    // let productoNro = 0;
-    // let precioTotal = 0;
-    // let misCompras = JSON.parse(localStorage.getItem ("compras"));
-
-    // misCompras.forEach(element => {
-    //     productoNro++;
-    //     //productoNro = productoNro + 1; igual a linea anterior
-    //     mensaje+= "Producto "+productoNro+": "+element.nombre+"\n";
-    //     precioTotal = precioTotal + element.precio;
-    // });
 
 
     mensaje+= "Gracias por su compra!"
