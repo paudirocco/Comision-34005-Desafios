@@ -1,6 +1,6 @@
 [
-    {"id": 1, "nombre": "notificaciones electronicas", "precio": 2900, "cantidad": 20, "imagen": "/imagenes/notificaciones-electronicas.jpg"},
-    {"id": 2, "nombre": "manual de contratos", "precio": 3400, "cantidad": 17, "imagen": "/imagenes/manual-de-contratos.jpg"},
-    {"id": 3, "nombre": "matrimonio y divorcio", "precio": 2600, "cantidad": 0, "imagen": "/imagenes/matrimonio-y-divorcio.jpg"},
-    {"id": 4, "nombre": "derecho privado empresarial", "precio": 4900, "cantidad": 10, "imagen": "/imagenes/derecho-privado-empresarial.jpg"}
+    {"id": 1, "nombre": "Notificaciones electronicas", "precio": 2900, "cantidad": 20, "imagen": "/imagenes/notificaciones-electronicas.jpg"},
+    {"id": 2, "nombre": "Manual de contratos", "precio": 3400, "cantidad": 17, "imagen": "/imagenes/manual-de-contratos.jpg"},
+    {"id": 3, "nombre": "Matrimonio y divorcio", "precio": 2600, "cantidad": 0, "imagen": "/imagenes/matrimonio-y-divorcio.jpg"},
+    {"id": 4, "nombre": "Derecho privado empresarial", "precio": 4900, "cantidad": 10, "imagen": "/imagenes/derecho-privado-empresarial.jpg"}
 ]
